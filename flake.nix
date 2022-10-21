@@ -20,15 +20,15 @@
       in
       {
         defaultPackage = go_1_19_2;
-        packages = [ 
-          go_1_17_3
-          go_1_18_5
-          go_1_18_6
-          go_1_18_7
-          go_1_19
-          go_1_19_1
-          go_1_19_2
-        ];
+        packages = { 
+          go_1_17_3 = go_1_17_3;
+          go_1_18_5 = go_1_18_5;
+          go_1_18_6 = go_1_18_6;
+          go_1_18_7 = go_1_18_7;
+          go_1_19 = go_1_19;
+          go_1_19_1 = go_1_19_1;
+          go_1_19_2 = go_1_19_2;
+        };
         devShells = {
           default = pkgs.mkShell {
             packages = [ go_1_19_2 ];
