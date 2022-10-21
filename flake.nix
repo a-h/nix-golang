@@ -10,13 +10,27 @@
         pkgs = import nixpkgs {
           system = system;
         };
-        go = pkgs.callPackage ./go.nix {};
+        go_1_17_3 = pkgs.callPackage ./go_1_17_3.nix {};
+        go_1_18_5 = pkgs.callPackage ./go_1_18_5.nix {};
+        go_1_18_6 = pkgs.callPackage ./go_1_18_6.nix {};
+        go_1_18_7 = pkgs.callPackage ./go_1_18_7.nix {};
+        go_1_19 = pkgs.callPackage ./go_1_19.nix {};
+        go_1_19_1 = pkgs.callPackage ./go_1_19_1.nix {};
+        go_1_19_2 = pkgs.callPackage ./go_1_19_2.nix {};
       in
       {
-        defaultPackage = go;
-        packages = go;
+        defaultPackage = go_1_19_2;
+        packages = [ 
+          go_1_17_3
+          go_1_18_5
+          go_1_18_6
+          go_1_18_7
+          go_1_19
+          go_1_19_1
+          go_1_19_2
+        ];
         devShells.default = pkgs.mkShell {
-          packages = [ go ];
+          packages = [ go_1_19_2 ];
         };
       }
     );
