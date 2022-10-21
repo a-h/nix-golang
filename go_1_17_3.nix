@@ -1,4 +1,4 @@
-{ pkgs, stdenv, fetchurl }:
+{ pkgs, stdenv, fetchurl, autoPatchelfHook }:
 
 let
   toGoKernel = platform:
@@ -39,6 +39,9 @@ stdenv.mkDerivation {
     url = "https://golang.org/dl/go${version}.${platform}.tar.gz";
     sha256 = hashes.${platform} or (throw "Missing Go bootstrap hash for platform ${platform}");
   };
-  builder = ./go-install.sh;
+  nativeBuildInputs = if pkgs.stdenv.isLinux
+    then [ autoPatchelfHook ]
+    else [];
+  installPhase = ./go-install.sh;
   system = builtins.currentSystem;
 }
