@@ -18,9 +18,10 @@
         go_1_19_1 = pkgs.callPackage ./go_1_19_1.nix {};
         go_1_19_2 = pkgs.callPackage ./go_1_19_2.nix {};
         go_1_20_3 = pkgs.callPackage ./go_1_20_3.nix {};
+        go_1_22_0 = pkgs.callPackage ./go_1_22_0.nix {};
       in
       {
-        defaultPackage = go_1_20_3;
+        defaultPackage = go_1_22_0;
         packages = { 
           go_1_17_3 = go_1_17_3;
           go_1_18_5 = go_1_18_5;
@@ -30,10 +31,11 @@
           go_1_19_1 = go_1_19_1;
           go_1_19_2 = go_1_19_2;
           go_1_20_3 = go_1_20_3;
+          go_1_22_0 = go_1_22_0;
         };
         devShells = {
           default = pkgs.mkShell {
-            packages = [ go_1_19_2 ];
+            packages = [ go_1_22_0 ];
           };
           go_1_17_3 = pkgs.mkShell {
             packages = [ go_1_17_3 ];
@@ -58,6 +60,9 @@
           };
           go_1_20_3 = pkgs.mkShell {
             packages = [ go_1_20_3 ];
+          };
+          go_1_22_0 = pkgs.mkShell {
+            packages = [ go_1_22_0 ];
           };
         };
       }
