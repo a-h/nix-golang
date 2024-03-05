@@ -22,7 +22,6 @@ let
     "aarch64" = "arm64";
     "armv6l" = "armv6l";
     "armv7l" = "armv6l";
-    "powerpc64le" = "ppc64le";
   }.${platform.parsed.cpu.name} or (throw "Unsupported CPU ${platform.parsed.cpu.name}");
 
   version = "1.22.1";
